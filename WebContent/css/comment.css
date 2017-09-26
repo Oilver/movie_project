@@ -1,0 +1,35 @@
+form{
+	width:500px;
+	height:200px;
+	margin:100px auto;
+}
+input{
+	outline:none;
+	margin:5px;
+	border:1px solid #32a333;
+	width:200px;
+	height:30px;
+}
+textarea{
+	outline:none;
+	margin:5px;
+	border:1px solid #32a333;
+	width:450px;
+	height:150px;
+	font-size:18px;
+	float:right;
+	}
+input.submit{
+	border-radius:10px;
+	width:120px;
+	height:40px;
+	background-color:#32a333;
+	color:#fff;
+	font-size:16px;
+	margin-left:160px;
+}
+p{
+	color:#ffc660;
+	font-size:30px;
+	margin-left:300px;
+}

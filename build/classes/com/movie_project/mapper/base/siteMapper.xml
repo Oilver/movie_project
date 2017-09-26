@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.movie_project.mapper.base.siteMapper" >
+  <resultMap id="BaseResultMap" type="com.movie_project.model.entity.site" >
+    <id column="ses_id" property="sesId" jdbcType="INTEGER" />
+    <id column="row_id" property="rowId" jdbcType="INTEGER" />
+    <id column="column_id" property="columnId" jdbcType="INTEGER" />
+    <result column="scr_id" property="scrId" jdbcType="INTEGER" />
+    <result column="empty" property="empty" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ses_id, row_id, column_id, scr_id, empty
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.movie_project.model.entity.siteExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from site
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="pagination != null" >
+      limit #{pagination.begin} , #{pagination.length}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.movie_project.model.entity.siteKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from site
+    where ses_id = #{sesId,jdbcType=INTEGER}
+      and row_id = #{rowId,jdbcType=INTEGER}
+      and column_id = #{columnId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.movie_project.model.entity.siteKey" >
+    delete from site
+    where ses_id = #{sesId,jdbcType=INTEGER}
+      and row_id = #{rowId,jdbcType=INTEGER}
+      and column_id = #{columnId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.movie_project.model.entity.siteExample" >
+    delete from site
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.movie_project.model.entity.site" >
+    insert into site (ses_id, row_id, column_id, 
+      scr_id, empty)
+    values (#{sesId,jdbcType=INTEGER}, #{rowId,jdbcType=INTEGER}, #{columnId,jdbcType=INTEGER}, 
+      #{scrId,jdbcType=INTEGER}, #{empty,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.movie_project.model.entity.site" >
+    insert into site
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sesId != null" >
+        ses_id,
+      </if>
+      <if test="rowId != null" >
+        row_id,
+      </if>
+      <if test="columnId != null" >
+        column_id,
+      </if>
+      <if test="scrId != null" >
+        scr_id,
+      </if>
+      <if test="empty != null" >
+        empty,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sesId != null" >
+        #{sesId,jdbcType=INTEGER},
+      </if>
+      <if test="rowId != null" >
+        #{rowId,jdbcType=INTEGER},
+      </if>
+      <if test="columnId != null" >
+        #{columnId,jdbcType=INTEGER},
+      </if>
+      <if test="scrId != null" >
+        #{scrId,jdbcType=INTEGER},
+      </if>
+      <if test="empty != null" >
+        #{empty,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.movie_project.model.entity.siteExample" resultType="java.lang.Integer" >
+    select count(*) from site
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update site
+    <set >
+      <if test="record.sesId != null" >
+        ses_id = #{record.sesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.rowId != null" >
+        row_id = #{record.rowId,jdbcType=INTEGER},
+      </if>
+      <if test="record.columnId != null" >
+        column_id = #{record.columnId,jdbcType=INTEGER},
+      </if>
+      <if test="record.scrId != null" >
+        scr_id = #{record.scrId,jdbcType=INTEGER},
+      </if>
+      <if test="record.empty != null" >
+        empty = #{record.empty,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update site
+    set ses_id = #{record.sesId,jdbcType=INTEGER},
+      row_id = #{record.rowId,jdbcType=INTEGER},
+      column_id = #{record.columnId,jdbcType=INTEGER},
+      scr_id = #{record.scrId,jdbcType=INTEGER},
+      empty = #{record.empty,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.movie_project.model.entity.site" >
+    update site
+    <set >
+      <if test="scrId != null" >
+        scr_id = #{scrId,jdbcType=INTEGER},
+      </if>
+      <if test="empty != null" >
+        empty = #{empty,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ses_id = #{sesId,jdbcType=INTEGER}
+      and row_id = #{rowId,jdbcType=INTEGER}
+      and column_id = #{columnId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.movie_project.model.entity.site" >
+    update site
+    set scr_id = #{scrId,jdbcType=INTEGER},
+      empty = #{empty,jdbcType=INTEGER}
+    where ses_id = #{sesId,jdbcType=INTEGER}
+      and row_id = #{rowId,jdbcType=INTEGER}
+      and column_id = #{columnId,jdbcType=INTEGER}
+  </update>
+</mapper>

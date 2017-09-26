@@ -1,0 +1,96 @@
+div#logo{
+	margin: 30px 0 10px 150px;
+	height:50px;
+	line-height:50px;
+	color:#32a333;
+	font-size:50px;
+	font-family:"方正舒体";
+
+}
+div#logo img{
+	position:relative;
+	top:11px;
+}
+
+div.photo{
+	margin:50px 0 10px 150px;
+	width:480px;
+	height:370px;
+	background-image:url(../images/login_logo.jpg);
+}
+#register_logo{
+	margin:140px 0 10px 40px;
+	width:680px;
+	height:318px;
+	background-image:url(../images/register.jpg);
+}
+div.right{
+	float:right;
+	width:600px;
+	margin-top:70px;
+	color:#999999;
+}
+#register_content{
+	margin-top:10px;
+}
+span+input{
+	width:230px;
+	height:25px;
+	outline:none;
+}
+div.right form input:nth-child(2),div.right form input:nth-child(4){
+	padding: 0 10px;
+	width:240px;
+	height:30px;
+	line-height:30px;
+	outline:none;
+}
+div.right input{
+	margin:10px 0 10px 0;
+}
+div.right a{
+	text-decoration:none;
+	color:#38b838;
+	padding:5px;
+}
+div.right a.password{
+	margin-left:58px;
+	color:#e4393c;
+
+}
+i{
+	color:#e4393c;
+	margin-left:20px;
+}
+i.reg_phone{display:none;}
+i.reg_psw{display:none;}
+div.right input.register{
+	background-color:#32a333;
+	width:320px;
+	height:35px;
+	line-height:35px;
+	font-size:20px;
+	color:#939393;
+	border:none;
+}
+div.right input.login{
+	background-color:#32a333;
+	width:262px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	border:none;
+}
+/*底部：*/
+div.footer{
+	width:1349px;
+	padding:30px 0 30px 0;
+	background-color:#fff;
+	font-size:18px;
+	text-align:center;
+	color:#7b7b7b;
+}
+div.footer div a{
+	text-decoration:none;
+	color:#32a333;
+}

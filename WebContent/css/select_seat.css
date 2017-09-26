@@ -1,0 +1,96 @@
+#head{
+	/* width:1349px; */
+	height:60px;
+	line-height:60px;
+	background-color:rgba(50,50,50,0.8);
+	}
+#head>span{font-size:30px;color:#fc0;font-family:"楷体";}
+#head>div{margin-right:30px;}
+#head>div span{color:#fff;font-size:15px;}
+#head>div a{color:#32a333;font-size:15px;text-decoration:none;}
+#body{
+	width:850px;
+	height:550px;
+	border:1px solid #ccc;
+	margin:10px auto;
+}
+#body div#seat{
+	width:629px;
+	height:550px;
+	background-color:rgba(200,230,200,0.1);
+	border-right:1px solid #ccc;
+}
+#body div#seat div.first{width:330px;margin:15px auto;}
+#body div#seat div.first b{
+	display:inline-block;
+	width:20px;
+	height:18px;
+	background:url(../images/sp-seats.png) no-repeat -27px 0;
+	margin:5px 10px;
+}
+#sel_seat{padding-bottom:20px;}
+#sel_seat ul{overflow:hidden;}
+#sel_seat ul li{
+	float:left;
+	width:85px;
+	height:26px;
+	line-height:26px;
+	margin-left:5px;
+	margin-top:10px;
+	background-color:#fff;
+	border:1px dashed #ccc;
+	color:#ccc;
+	text-align:center;
+}
+#sel_seat ul li.sel{
+	background-color:#fc0;
+	color:#333;
+	border:1px solid #DF6226;
+}
+#body div#seat div.first b:nth-child(3){background:url(../images/sp-seats.png) no-repeat -52px 0;}
+#body div#seat div.first b:nth-child(5){background:url(../images/sp-seats.png) no-repeat -77px 0;}
+#body div#seat div.first span{font-size:16px;position:relative;top:-10px;}
+#body div#seat div.second{width:615px; height:36px;margin: 2px auto;background:url(../images/sp-seats.png) no-repeat 0 -54px}
+#seat_content>p{height:18px;line-height:18px;font-size:16px;margin-bottom:10px;}
+#seat_content>p span{
+	display:inline-block;
+	width:20px;
+	height:18px;
+	background:url(../images/sp-seats.png) no-repeat -27px 0;
+	margin-left:10px;
+}
+#instruction{
+	margin:20px 15px;
+}
+#instruction p{margin-top:15px;font-size:16px;}
+#seat_content>p span.red{background:url(../images/sp-seats.png) no-repeat -52px 0;}
+#seat_content>p span.green{background:url(../images/sp-seats.png) no-repeat -77px 0;}
+#seat_content{margin:30px 0 0 134px;}
+#body div#seat_info{
+	width:220px;
+	height:550px;
+	background-color:rgba(200,200,200,0.2);
+}
+#body div#seat_info div{
+	margin:15px 15px;
+	font-size:16px;
+	border-bottom:1px solid #ccc;
+}
+#body div#seat_info div p{margin-bottom:5px;}
+#totalPrice{
+	margin-top:10px;
+}
+#totalPrice b{color:#fc0;font-size:28px;}
+#form input{
+	margin:0 0 20px 30px;
+	width:130px;
+	height:40px;
+	line-height:40px;
+	border:none;
+	outline:none;
+	color:#fff;
+	text-align:center;
+	background-color:#fc0;
+	font-size:18px;
+	border-radius:20px;
+}

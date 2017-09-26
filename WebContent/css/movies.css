@@ -1,0 +1,177 @@
+#big_sort{
+	width:100%;
+	height:70px;
+	background-color:#222;
+}
+#big_sort ul{
+	padding-left:404.5px;
+	width:100%
+}
+#big_sort ul li{
+	position:relative;
+	float:left;
+	width:13.343217%;
+	text-align:center;
+	height:70px;
+	line-height:70px;
+	font-size:20px;
+}
+#big_sort ul li:hover{
+	color:#32a333;
+	cursor:pointer;
+}
+#big_sort ul li span{
+	position:absolute;
+	border:10px solid #222;
+	border-bottom-color:#fff;
+	bottom:0;
+	left:80px;
+	display:none;
+}
+#big_sort ul li.active{
+	color:#32a333;
+}
+#big_sort ul li.active span{
+	display:block;
+}
+
+
+/********************详细分类：类型、区域、年份*/
+#sort_details{
+	width:83.024463%;
+	min-height:180px;
+	margin: 50px auto;
+	border:1px slid #ccc;
+}
+/*分割线*/
+#sort_details>p{
+	width:78.751857%;
+	margin:3px auto;
+	border-top:1px dotted #ccc;
+}
+#sort_details>div{
+	overflow:hidden;
+	font-size:15px;
+}
+#sort_details>div>p{
+	float:left;
+	padding:10px 8px 5px 13px;
+}
+#sort_details>div>div{
+	float:left;
+	min-height:50px;
+	width:77.835434%;
+}
+#sort_details>div>div ul li{
+	float:left;
+	color:#222;
+	font-size:15px;
+	margin:8px 14px 3px 0;
+	padding:4px 9px;
+	border-radius:15px;
+	
+}
+#sort_details>div>div ul li:hover{
+	color:#32a333;
+	cursor:pointer;
+}
+#sort_details>div>div ul li.active{
+	color:#fff;
+	background-color:#32a333;
+}
+
+/*****************排序**************/
+#order{margin-left:108px;overflow:hidden;}
+#order ul li{
+	float:left;
+	margin-right:75px;
+	color:#222;
+	font-size:15px;
+	cursor:pointer;
+}
+#order ul li span{
+	display:inline-block;
+	width:18px;
+	height:18px;
+	border-radius:50%;
+	position:relative;
+	margin:0 6px 0 4px;
+	top:4px;
+	border:1px solid #ccc;
+}
+#order ul li span b{
+	position:absolute;
+	color:#fff;
+	font-size:25px;
+	top:-8px;
+	left:3px;
+}
+#order ul li.active span{background-color:#32a333;border-color:transparent;}
+
+/****************电影展示**************/
+#sort_display{
+	overflow:hidden;
+	width:83.024463%;
+	margin: 50px auto;
+}
+#sort_display ul li{
+	float:left;
+	width:160px;
+	margin: 0 0 25px 26px;
+
+}
+#sort_display ul li a:first-child{
+	display:inline-block;
+	width:160px;
+	height:220px;
+	position:relative;
+	overflow:hidden;
+}
+#sort_display ul li a:first-child div{
+	position:absolute;
+	top:0;
+	width:160px;
+	height:220px;
+	z-index:50;
+}
+#sort_display ul li a:first-child:hover div{
+	background-color:rgba(80,200,0,0.3);
+}
+#sort_display ul li a:first-child img{
+	transition:transform 0.3s linear;
+}
+#sort_display ul li a:first-child:hover img{
+	transform:scale(1.1,1.1);
+}
+#sort_display ul li a:nth-child(2){
+	display:block;
+	width:160px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:16px;
+	color:#222;
+	text-decoration:none;
+}
+#sort_display ul li a:first-child span{
+	display:block;
+	width:69px;
+	height:25px;
+	position:absolute;
+	top:5px;
+	left:-3px;
+	z-index:30;
+}
+#sort_display ul li:first-child a:first-child span{
+	background:transparent url(../Image/index/background_2.jpg) no-repeat;
+}
+#sort_display ul li p{
+	color:#e26433;
+	font-size:17px;
+	font-family:"Tekton Pro";
+	text-align:center;
+}
+#sort_display ul li:nth-child(1),#sort_display ul li:nth-child(7),#sort_display ul li:nth-child(13),
+#sort_display ul li:nth-child(19),#sort_display ul li:nth-child(25){
+	margin-left:0;
+}

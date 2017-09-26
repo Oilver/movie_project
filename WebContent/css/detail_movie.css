@@ -1,0 +1,145 @@
+#show_bill{
+	height:378px;
+	background-image:radial-gradient(400px at 250px 75px,#724451 0%,#3A2F59 100%);
+	position:relative;
+}
+#show_bill div.photo{
+	position:absolute;
+	width:236px;
+	border:4px solid #fff;
+	height:329px;
+	top:80px;
+	left:110px;
+}
+#show_bill div.photo img{
+	width:236px;
+	height:329px;	
+}
+#show_bill div.info{
+	color:#fff;
+	position:absolute;
+	top:70px;
+	left:395px;
+	font-size:14px;
+}
+#show_bill div.info h2{
+	font-size:30px;
+	margin-bottom:15px;
+}
+#show_bill div.info p{
+	margin-top:8px;
+}
+#show_bill div.info button{
+	width:120px;
+	height:35px;
+	border:none;
+	background-color:rgba(255,255,255,0.15);
+	color:#fff;
+	margin: 55px 10px 0 0;
+	border-radius:3px;
+	padding-left:10px;
+	cursor:pointer;
+	outline:none;
+}
+#show_bill div.info button.like img{
+	margin-right:5px;
+}
+#show_bill div.info button.mark{
+	padding-left:0;
+}
+#show_bill div.info button.shop{
+	background-color:#32a333;
+	margin-top:15px;
+	width:250px;
+	font-size:16px;
+}
+#intro{padding:5px 20px;width:600px;}
+#details_mark{
+	color:#fff;
+	position:absolute;
+	top:190px;
+	left:740px;
+	font-size:16px;
+}
+#details_mark p.likeNumber,#user_mark span.markNumber,#details_mark p.box_office{font-size:22px;color:#FFC600;margin: 5px 0;}
+#user_mark span.markNumber{display:inline-block;}
+#user_mark span.markPhoto{
+	margin-left:10px;
+	display:inline-block;
+	width:68px;
+	height:15px;
+	background:url(../images/iconlist_1.png) no-repeat -108px -238px;
+}
+
+#sub_nav{
+	margin:60px 0 0 50px;
+	width:840px;
+	height:40px;s
+	border-bottom:2px solid #ccc;
+}
+#sub_nav a{
+	position:relative;
+	text-decoration:none;
+	display:inline-block;
+	padding: 0 20px 0 20px;
+	height:40px;
+	line-height:40px;
+	color:#333;
+	font-size:16px;
+	border-bottom:2px solid transparent;
+}
+#sub_nav a.native{
+	color:#32a333;
+	border-bottom:2px solid #32a333;
+}
+div.public{
+	width:840px;
+	margin:50px 0 0 50px;
+	color:#333;
+}
+div.public a{
+	font-size:20px;
+	border-left:4px solid #32a333;
+	padding-left:5px;
+}
+#actor{
+	font-size:16px;
+}
+#actor_content{
+	padding:10px;
+}
+#actor_content>p,#actor_content div>p:first-child{color:#ffc660;font-weight:bold;margin-bottom:5px;}
+#actor_content div p{margin:3px 0;color:#ccc;}
+#actor_content div>p:first-child{margin-top:15px;}
+#brief_intro div{
+	padding: 10px 5px 10px 0;
+	font-size:15px;
+}
+#actor div{
+	background-color:rgba(220,220,220,0.1);
+}
+#user{border-bottom:1px solid #ddd;padding-bottom:10px;}
+#user>div>div{float:right;top:-11px;position:relative;}
+#user>div>div b{
+	display:inline-block;border:1px solid #e4393c; color:#e4393c;
+	width:25px;height:15px;border-radius:6px;text-align:center;line-height:15px;cursor:pointer;
+	
+}
+#user>div>div b.zan{
+	color:#fff;
+	background-color:#e4393c;
+}
+#user>div.header{margin-left:50px;margin-top:10px;}
+#user>div.header>span{color:#121289;}
+#user>div.header>span:nth-child(3){color:#fc0;font-size:15px;}
+#user>p.userName{color:#fc0;font-weight:bold;font-size:18px;}
+#user>div>div span{color:#ccc;}
+#user>p.user_comment{margin-left:50px;margin-top:10px;}
+#hot_mark a.discuss{float:right;width:65px;height:30px;border-radius:12px;
+border:1px solid #e4393c;text-decoration:none;color:#e4393c;
+font-size:16px;text-align:center;line-height:30px;}
+#hot_mark>div{
+	margin-top:15px;
+	min-height:100px;
+	background-color:rgba(220,220,220,0.1);
+}

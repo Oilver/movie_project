@@ -1,0 +1,41 @@
+#movie_session{
+	position:fixed;
+	top:150px;
+	right:250px;
+	width:1000px;
+	min-height:500px;
+	color:#32a333;
+	font-size:20px;
+}
+#movie_session input{
+	width:250px;
+	height:25px;
+	border:1px solid #32a333;
+	outline:none;
+	margin-top:14px;
+}
+#movie_session select{
+	padding: 0 10px;
+	height:25px;
+	margin:10px 0 0 -6px;
+	outline:none;
+	border:1px solid #32a333;
+	font-size:17px;
+}
+#movie_session select.display_room{margin-left:29px;}
+#movie_session input.right_shift{margin-left:40px;}
+#movie_session input.reset,#movie_session input.submit{
+	margin:60px 10px 0 90px;
+
+	width:100px;
+	height:60px;
+	color:#fff;
+	font-size:30px;
+	border:none;
+	border-radius:20px;
+	background-color:#e4393c;
+	cursor:pointer;
+}
+#movie_session input.submit{
+	background-color:#32a333;
+}

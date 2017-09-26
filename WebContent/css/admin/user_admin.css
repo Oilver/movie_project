@@ -1,0 +1,111 @@
+#user_search{
+	width:83%;
+	height:60px;
+	line-height:60px;
+	background-color:#fff;
+	margin:80px 25px 0 0;
+	position:fixed;
+	left:204px;
+	color:#32a333;
+	font-size:20px;
+	font-weight:bold;
+	z-index:20;
+}
+#user_search a{
+	text-decoration:none;
+	background-color:#32a333;
+	color:#fff;
+	padding:5px 10px;
+	border-radius:10px;
+	margin-left:300px;
+}
+#user_search input{
+	padding-left:10px;
+	margin-left:150px;
+	width:220px;
+	height:30px;
+	outline:none;
+	border:3px solid #32a333;
+	border-radius:18px 0 0 18px;
+	margin-right:0;
+	font-size:15px;
+	position:relative;
+	top:-2px;
+}
+#user_search button{
+	font-size:15px;
+	position:relative;
+	top:-1px;
+	left:-7px;
+	border-radius:0 18px 18px 0;
+	width:50px;
+	height:38px;
+	outline:none;
+	border:3px solid #32a333;
+	background-color:#32a333;
+	color:#fff;
+}
+
+/*用户具体信息*/
+#thead{
+	width:83.024463%;
+	position:fixed;
+	height:40px;
+	top:140px;
+	right:25px;
+	color:#fff;
+	background-color:#444;
+	z-index:10;
+}
+table.public{
+	width:100%;
+	box-sizing:border-box;
+	border-collapse:collapse;
+	margin:0;
+}
+table.public td{
+	border:2px solid #444;
+	height:34px;
+	font-size:16px;
+	font-weight:bold;
+	text-align:center;
+}
+table.public td:nth-child(1){width:70px;}
+table.public td:nth-child(2){width:170px;}
+table.public td:nth-child(3){width:180px;}
+table.public td:nth-child(4){width:230px;}
+table.public td:nth-child(5){width:210px;}
+
+#user_content{
+	position:absolute;
+	top:178px;
+	right:25px;
+	margin-bottom:32px;
+	z-index:1;
+	min-height:200px;
+	width:83.024463%;
+}
+table.public td:nth-child(6) button{
+	margin-right:20px;
+	width:55px;
+	height:33px;
+	line-height:33px;
+	color:#fff;
+	font-weight:bold;
+	cursor:pointer;
+	border-radius:10px;
+	border:none;
+	outline:none;
+}
+table.public td:nth-child(6) button:nth-child(1){background-color:#e4393c;}
+table.public td:nth-child(6) button:nth-child(2){background-color:#008AD4;}
+/*（遮挡的）*/
+div.cover{
+	position:fixed;
+	background-color:#fff;
+	width:83.024463%;
+	height:32px;
+	bottom:0;
+	right:25px;
+	z-index:20;
+}

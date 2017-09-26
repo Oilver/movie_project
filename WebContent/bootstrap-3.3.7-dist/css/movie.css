@@ -1,0 +1,124 @@
+/*子菜单栏*/
+.subnav {
+    padding-top: 60px;
+    background-color: #47464a;
+    height: 120px;
+    width: 100%;
+    min-width: 1200px;
+    text-align: center;
+}
+
+.subnav .navbar {
+    display: inline-block;
+    overflow: hidden
+}
+
+.subnav .navbar li {
+    display: inline-block;
+    float: left
+}
+
+.subnav .navbar li a {
+    display: block;
+    font-size: 16px;
+    color: #999;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 40px
+}
+
+.subnav .navbar li a:hover {
+    color: #fff
+}
+
+.subnav .navbar li .active {
+    color: #ef4238;
+    position: relative;
+    cursor: default
+}
+
+.subnav .navbar li .active:hover {
+    color: #ef4238
+}
+
+.subnav .navbar li .active:before {
+    content: "";
+    width: 2px;
+    height: 0;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    top: 53px;
+    border-bottom: 7px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: none
+}
+
+
+/*导航选项*/
+.movies-channel {
+    width: 1142px;
+    margin: auto;
+    overflow: hidden
+}
+
+
+.tags-panel {
+    border: 1px solid #e5e5e5;
+    padding: 0 20px;
+    margin-top: 40px
+}
+
+
+.tags-panel li, .tags-panel ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none
+}
+
+.tags-line {
+    padding: 10px 0 !important
+}
+
+.tags-line-border {
+    border-top: 1px dotted #e5e5e5
+}
+
+.tags-title {
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    color: #999;
+    font-size: 14px
+}
+
+.tags {
+    margin-left: 40px !important
+}
+
+.tags a:hover {
+    color: #ef4238
+}
+
+.tags li {
+    border-radius: 14px;
+    padding: 3px 9px;
+    display: inline-block;
+    margin-left: 12px
+}
+
+.tags li.active {
+    background: #f34d41;
+    color: #fff
+}
+
+.tags li a {
+    color: #333;
+    font-size: 14px
+}
+
+.tags li.active a {
+    color: #fff
+}

@@ -1,0 +1,30 @@
+#pay_select{
+	width:800px;
+	margin:80px auto;
+	background-color:rgba(220,255,180,0.2);
+	border:1px solid #eef;
+	border-right:2px solid #eef;
+	border-left:2px solid #eef;
+	min-height:300px;
+}
+#pay_select>p{color:#fc0;padding:15px;font-size:22px;}
+#pay_select div.selected{
+	padding:10px 0;
+	margin:10px 20px 0 20px;
+	border-bottom:1px dashed #eef;
+}
+#selected{overflow:hidden;font-size:16px;}
+#selected div span{color:#fc0;font-size:20px;}
+#selected div a{
+	display:inline-block;
+	width:80px;
+	height:30px;
+	color:#fff;
+	background-color:#fc0;
+	text-decoration:none;
+	border-radius:10px;
+	line-height:30px;
+	text-align:center;
+	border:1px solid #DF6226;
+}
+#selected:hover{background-color:rgba(222,252,142,0.2);}

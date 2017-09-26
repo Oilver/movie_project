@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.movie_project.mapper.base.ordersMapper" >
+  <resultMap id="BaseResultMap" type="com.movie_project.model.entity.orders" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="cli_id" property="cliId" jdbcType="INTEGER" />
+    <result column="ses_id" property="sesId" jdbcType="INTEGER" />
+    <result column="order_time" property="orderTime" jdbcType="TIMESTAMP" />
+    <result column="row_id" property="rowId" jdbcType="INTEGER" />
+    <result column="column_id" property="columnId" jdbcType="INTEGER" />
+ 	
+  </resultMap>
+  
+  <!-- 一对一 -->
+   <resultMap type="com.movie_project.model.entity.orders" id="ordersResultMap">
+  	<id column="id" property="id" jdbcType="INTEGER" />
+  	<result column="cli_id" property="cliId" jdbcType="INTEGER" />
+    <result column="ses_id" property="sesId" jdbcType="INTEGER" />
+    <result column="order_time" property="orderTime" jdbcType="TIMESTAMP" />
+    <result column="row_id" property="rowId" jdbcType="INTEGER" />
+    <result column="column_id" property="columnId" jdbcType="INTEGER" />
+ 
+  	<association property="sessions" javaType="com.movie_project.model.entity.sessions">
+  		<id column="sesId" property="id" jdbcType="INTEGER" />
+		<result column="mov_id" property="movId" jdbcType="INTEGER" />
+   		<result column="screens_id" property="screensId" jdbcType="INTEGER" />
+   		<result column="start_date" property="startDate" jdbcType="DATE" />
+    	<result column="price" property="price" jdbcType="DOUBLE" />
+    	<result column="view" property="view" jdbcType="VARCHAR" />
+   		<result column="total_sold" property="totalSold" jdbcType="INTEGER" />
+   		<result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    	<result column="start_time" property="startTime" jdbcType="TIME" />
+		
+		<association property="movie" javaType="com.movie_project.model.entity.movie">
+ 		<id column="movId" property="id" jdbcType="INTEGER" />
+ 		<result column="mov_name" property="movName" jdbcType="VARCHAR" />
+   	 	<result column="total_score" property="totalScore" jdbcType="DOUBLE" />
+    	<result column="type" property="type" jdbcType="VARCHAR" />
+   		<result column="showtime" property="showtime" jdbcType="DATE" />
+    	<result column="runningtime" property="runningtime" jdbcType="INTEGER" />
+    	<result column="director" property="director" jdbcType="VARCHAR" />
+    	<result column="actor" property="actor" jdbcType="VARCHAR" />
+   	 	<result column="introduction" property="introduction" jdbcType="VARCHAR" />
+	   	<result column="status" property="status" jdbcType="INTEGER" />
+	    <result column="image" property="image" jdbcType="VARCHAR" />
+ 		</association>
+  	</association>
+  </resultMap>
+  
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, cli_id, ses_id, order_time, row_id, column_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.movie_project.model.entity.ordersExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from orders
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="pagination != null" >
+      limit #{pagination.begin} , #{pagination.length}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+    <!-- 一对一，resultMap查询 -->
+  <select id="findordersByCliId" resultMap="ordersResultMap"  parameterType="java.lang.Integer" >
+  	select orders.*,s.*,m.*
+  	from orders,sessions s,movie m
+  	where orders.cli_id= #{cliId,jdbcType=INTEGER} and orders.ses_id = s.id and m.id=s.mov_id
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from orders
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.movie_project.model.entity.ordersExample" >
+    delete from orders
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.movie_project.model.entity.orders" >
+    insert into orders (id, cli_id, ses_id, 
+      order_time, row_id, column_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{cliId,jdbcType=INTEGER}, #{sesId,jdbcType=INTEGER}, 
+      #{orderTime,jdbcType=TIMESTAMP}, #{rowId,jdbcType=INTEGER}, #{columnId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.movie_project.model.entity.orders" >
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cliId != null" >
+        cli_id,
+      </if>
+      <if test="sesId != null" >
+        ses_id,
+      </if>
+      <if test="orderTime != null" >
+        order_time,
+      </if>
+      <if test="rowId != null" >
+        row_id,
+      </if>
+      <if test="columnId != null" >
+        column_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cliId != null" >
+        #{cliId,jdbcType=INTEGER},
+      </if>
+      <if test="sesId != null" >
+        #{sesId,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null" >
+        #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowId != null" >
+        #{rowId,jdbcType=INTEGER},
+      </if>
+      <if test="columnId != null" >
+        #{columnId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.movie_project.model.entity.ordersExample" resultType="java.lang.Integer" >
+    select count(*) from orders
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update orders
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.cliId != null" >
+        cli_id = #{record.cliId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sesId != null" >
+        ses_id = #{record.sesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderTime != null" >
+        order_time = #{record.orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rowId != null" >
+        row_id = #{record.rowId,jdbcType=INTEGER},
+      </if>
+      <if test="record.columnId != null" >
+        column_id = #{record.columnId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update orders
+    set id = #{record.id,jdbcType=INTEGER},
+      cli_id = #{record.cliId,jdbcType=INTEGER},
+      ses_id = #{record.sesId,jdbcType=INTEGER},
+      order_time = #{record.orderTime,jdbcType=TIMESTAMP},
+      row_id = #{record.rowId,jdbcType=INTEGER},
+      column_id = #{record.columnId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.movie_project.model.entity.orders" >
+    update orders
+    <set >
+      <if test="cliId != null" >
+        cli_id = #{cliId,jdbcType=INTEGER},
+      </if>
+      <if test="sesId != null" >
+        ses_id = #{sesId,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null" >
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowId != null" >
+        row_id = #{rowId,jdbcType=INTEGER},
+      </if>
+      <if test="columnId != null" >
+        column_id = #{columnId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.movie_project.model.entity.orders" >
+    update orders
+    set cli_id = #{cliId,jdbcType=INTEGER},
+      ses_id = #{sesId,jdbcType=INTEGER},
+      order_time = #{orderTime,jdbcType=TIMESTAMP},
+      row_id = #{rowId,jdbcType=INTEGER},
+      column_id = #{columnId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

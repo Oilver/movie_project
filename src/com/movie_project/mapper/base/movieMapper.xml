@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.movie_project.mapper.base.movieMapper" >
+  <resultMap id="BaseResultMap" type="com.movie_project.model.entity.movie" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mov_name" property="movName" jdbcType="VARCHAR" />
+    <result column="total_score" property="totalScore" jdbcType="DOUBLE" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="showtime" property="showtime" jdbcType="DATE" />
+    <result column="runningtime" property="runningtime" jdbcType="INTEGER" />
+    <result column="director" property="director" jdbcType="VARCHAR" />
+    <result column="actor" property="actor" jdbcType="VARCHAR" />
+    <result column="introduction" property="introduction" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, mov_name, total_score, type, showtime, runningtime, director, actor, introduction, 
+    status, image
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.movie_project.model.entity.movieExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from movie
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="pagination != null" >
+      limit #{pagination.begin} , #{pagination.length}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from movie
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from movie
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.movie_project.model.entity.movieExample" >
+    delete from movie
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.movie_project.model.entity.movie" >
+    insert into movie (id, mov_name, total_score, 
+      type, showtime, runningtime, 
+      director, actor, introduction, 
+      status, image)
+    values (#{id,jdbcType=INTEGER}, #{movName,jdbcType=VARCHAR}, #{totalScore,jdbcType=DOUBLE}, 
+      #{type,jdbcType=VARCHAR}, #{showtime,jdbcType=DATE}, #{runningtime,jdbcType=INTEGER}, 
+      #{director,jdbcType=VARCHAR}, #{actor,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.movie_project.model.entity.movie" >
+    insert into movie
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="movName != null" >
+        mov_name,
+      </if>
+      <if test="totalScore != null" >
+        total_score,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="showtime != null" >
+        showtime,
+      </if>
+      <if test="runningtime != null" >
+        runningtime,
+      </if>
+      <if test="director != null" >
+        director,
+      </if>
+      <if test="actor != null" >
+        actor,
+      </if>
+      <if test="introduction != null" >
+        introduction,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="movName != null" >
+        #{movName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalScore != null" >
+        #{totalScore,jdbcType=DOUBLE},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="showtime != null" >
+        #{showtime,jdbcType=DATE},
+      </if>
+      <if test="runningtime != null" >
+        #{runningtime,jdbcType=INTEGER},
+      </if>
+      <if test="director != null" >
+        #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="actor != null" >
+        #{actor,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.movie_project.model.entity.movieExample" resultType="java.lang.Integer" >
+    select count(*) from movie
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update movie
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.movName != null" >
+        mov_name = #{record.movName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalScore != null" >
+        total_score = #{record.totalScore,jdbcType=DOUBLE},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.showtime != null" >
+        showtime = #{record.showtime,jdbcType=DATE},
+      </if>
+      <if test="record.runningtime != null" >
+        runningtime = #{record.runningtime,jdbcType=INTEGER},
+      </if>
+      <if test="record.director != null" >
+        director = #{record.director,jdbcType=VARCHAR},
+      </if>
+      <if test="record.actor != null" >
+        actor = #{record.actor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.introduction != null" >
+        introduction = #{record.introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.image != null" >
+        image = #{record.image,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update movie
+    set id = #{record.id,jdbcType=INTEGER},
+      mov_name = #{record.movName,jdbcType=VARCHAR},
+      total_score = #{record.totalScore,jdbcType=DOUBLE},
+      type = #{record.type,jdbcType=VARCHAR},
+      showtime = #{record.showtime,jdbcType=DATE},
+      runningtime = #{record.runningtime,jdbcType=INTEGER},
+      director = #{record.director,jdbcType=VARCHAR},
+      actor = #{record.actor,jdbcType=VARCHAR},
+      introduction = #{record.introduction,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      image = #{record.image,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.movie_project.model.entity.movie" >
+    update movie
+    <set >
+      <if test="movName != null" >
+        mov_name = #{movName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalScore != null" >
+        total_score = #{totalScore,jdbcType=DOUBLE},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="showtime != null" >
+        showtime = #{showtime,jdbcType=DATE},
+      </if>
+      <if test="runningtime != null" >
+        runningtime = #{runningtime,jdbcType=INTEGER},
+      </if>
+      <if test="director != null" >
+        director = #{director,jdbcType=VARCHAR},
+      </if>
+      <if test="actor != null" >
+        actor = #{actor,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.movie_project.model.entity.movie" >
+    update movie
+    set mov_name = #{movName,jdbcType=VARCHAR},
+      total_score = #{totalScore,jdbcType=DOUBLE},
+      type = #{type,jdbcType=VARCHAR},
+      showtime = #{showtime,jdbcType=DATE},
+      runningtime = #{runningtime,jdbcType=INTEGER},
+      director = #{director,jdbcType=VARCHAR},
+      actor = #{actor,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      image = #{image,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

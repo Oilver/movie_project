@@ -1,0 +1,255 @@
+
+/***********轮播图***********/
+	#scroll{
+		width:100%;
+		height:450px; 
+		background-color:white; 
+		position:relative;
+		border-bottom:1px solid gray;
+		overflow:hidden;
+	}
+	#scroll ul{
+		height:450px;
+		position:absolute;
+		width:100%;
+		transition:top 0.3s linear;
+	}
+	#scroll ul li{
+		width:100%;
+		height:450px;
+	}
+	#scroll ul li a{
+		width:100%;
+		height:450px;
+		display:block;
+	}
+	#scroll ol{
+		position: absolute;
+		right:47.590808%;
+		bottom:10px;
+	}
+	#scroll ol li{
+		float:left;
+		height: 15px;
+		width: 15px;
+		border-radius:50px;
+		background-color:rgba(230,230,230,0.3);
+		margin-left: 10px; 
+		line-height: 15px; 
+		text-align: center;
+		cursor:pointer;
+	}
+	#scroll ol li.active{background-color:green;}
+
+/***********正在热映*************/
+	.showing{
+		margin:80px 0 0 90px;
+		min-height:200px;
+		width:760px;
+		overflow:hidden;
+	}
+	/*链接（全部）*/
+	.showing>a{
+		float:right;
+		text-decoration:none;
+		color:#32a333;
+		font-size:18px;
+		margin-top:5px;
+	}
+	/*标题*/
+	.showing>p{
+		height:50px;
+		line-height:50px;
+		color:#32a333;
+		font-size:26px;
+
+	}
+	#hot_showing ul li{
+		float:left;
+		width:190px;
+		height:285px;
+		box-sizing:border-box;
+		padding:10px 15px 15px;
+		transition:transform 0.2s linear;
+	}
+	.showing ul>li>a:first-child{
+		display:inline-block;
+		width:160px;
+		height:220px;
+		
+		position:relative;
+	}
+	.showing ul>li>a:first-child span{
+		display:block;
+		width:69px;
+		height:25px;
+		position:absolute;
+		top:5px;
+		left:-3px;
+	}
+	#hot_showing ul li:first-child a:first-child span{
+		background-image:transparent url(../images/background_2.jpg) no-repeat;
+	}
+	#hot_showing ul li:nth-child(6) a:first-child span,#hot_showing ul li:nth-child(7) a:first-child span{
+		background-image:transparent url(../images/background_1.jpg) no-repeat;
+	}
+	.showing ul>li>a:first-child div{
+		width:100%;
+		height:30px;
+		line-height:30px;
+		background-color:rgba(50,50,50,0.5);
+		position:absolute;
+		bottom:0px;
+		font-size:16px;
+		color:#ccc;
+	}
+	.showing ul>li>a:first-child div p{padding-left:5px;}
+	#hot_showing ul li a:first-child div b{
+		float:right;
+		color:#E3B400;
+		padding-right:8px;
+	}
+
+	/*购票*/
+	#hot_showing ul>li>a:last-child{
+		text-decoration:none;
+		display:block;
+		color:#32a333;
+		text-align:center;
+		font-size:15px;
+		height:40px;
+		line-height:40px;
+		margin-top:-3px;
+		box-sizing:border-box;
+		border:1px solid #32a333;
+		border-top:none;
+	}
+	#hot_showing ul>li>a:last-child:hover{
+		background-color:#32a333;
+		color:#fff;
+	}
+	#hot_showing ul li:hover{
+		transform:scale(1.1,1.1);	
+	}
+
+/*********即将上映*********/
+	div#coming_showing.showing{
+		margin-top:55px;
+	}
+	#coming_showing>p,#coming_showing>a{
+		color:#2D98F3;
+	}
+
+	#coming_showing ul>li{
+		float:left;
+		width:190px;
+		height:340px;
+		box-sizing:border-box;
+		padding:10px 15px 15px;
+		transition:transform 0.18s linear;
+	}
+	#coming_showing ul>li:hover{
+		
+		transform:translateY(-11px);
+	}
+	#coming_showing ul>li>div:nth-child(2){
+		margin-top:-3px;
+		box-sizing:border-box;
+		padding-left:5px;
+		height:32px;
+		line-height:32px;
+		color:#FFB400;
+		font-size:13px;
+		background-color:rgba(250,250,250,0.9);
+		border-left:1px solid #eee;
+		border-right:1px solid #eee;
+	}
+	#coming_showing ul>li>div:nth-child(3){
+		height:38px;
+		border-left:1px solid #eee;
+		border-right:1px solid #eee;
+		}
+	#coming_showing ul>li>div:nth-child(3) a{
+		float:left;
+		box-sizing:border-box;
+		width:78px;
+		height:38px;
+		line-height:38px;
+		text-decoration:none;
+		text-align:center;
+		border-bottom:1px solid #eee;
+		color:#ccc;
+	}
+	#coming_showing ul>li>div:nth-child(3) a:last-child{
+		border-left:1px dotted #eee;
+		color:#2D98F3;
+	}
+	#coming_showing ul>li>div:nth-child(3) a:last-child:hover{
+		background-color:#2D98F3;
+		color:#fff;
+	}
+	#coming_showing ul>li>div:last-child{
+		height:40px;
+		line-height:40px;
+		text-align:center;
+		color:#ccc;
+		font-size:15px;
+	}
+
+/*今日票房*/
+	#listShow{
+		width:430px;
+		margin:80px 0 0 30px;
+	}
+	#listShow>div:first-child,#expect{height:620px;}
+	#listShow .ticketNum{
+		color:#ec393c;
+		font-size:26px;
+	}
+	#listShow ul{margin:25px 0 0 0;}
+	#listShow ul li #No1{
+		display:block;
+		height:139px;
+		border:1px solid #eee; 
+		color:#222; position:relative;
+	}
+	#listShow ul li a:hover{background-color:#eee;}
+	#listShow ul li #No1 div{width:300px; font-size:23px;}
+	#listShow ul li #No1 div p{margin:20px 10px;}
+	#listShow ul li #No1 b{
+		position:absolute;
+		width:22px;
+		height:26px;background-image:url(../images/top.png);
+		}
+	#No1ticketNum {color:#e4393c; font-size:28px;}
+	#listShow ul li:not(:first-child)>a{display:block;height:46px;line-height:46px;text-decoration:none;}
+	#listShow ul li:not(:first-child)>a>p{float:right;color:#e4393c;font-size:18px;}
+	#listShow ul li:not(:first-child)>a b{color:#ddd;font-weight:bold;font-size:26px;}
+	#listShow ul li:not(:first-child)>a span{color:#999;font-weight:bold;font-size:18px;margin-left:30px;}
+	#listShow ul li:not(:first-child)>#No2 b,#listShow ul li:not(:first-child)>#No3 b{color:#fc0;font-style:italic;font-size:28px;}
+	#expect{margin-top:55px;}
+	#expect div.expect{color:#fc0;font-size:26px;}
+	#expect div.expect a{font-size:15px;text-decoration:none;color:#fc0;position:relative;top:7px;}
+	#expect ul #one a{display:block;height:180px;border:1px solid #eee; color:#222; position:relative;}
+	#expect ul #one a div{width:280px;}
+	#expect ul #one a>b{
+		position:absolute;
+		width:25px;
+		height:25px;
+		line-height:25px;
+		text-align:center;
+		color:#FFF;
+		background-color:#fc0;
+		font-size:16px;
+	}
+	#expect ul #one a>div p{
+		margin:25px 10px;
+		font-size:18px;
+	}
+	#expect ul #one a>div p:last-child{color:#fc0;}
+    #expect ul li:nth-child(2) a,expect ul li:nth-child(3) a{
+		height:70px;
+		line-height:70px;
+	}
+	#listShow #expect ul li:not(:first-child)>a{display:block;height:50px;line-height:50px;text-decoration:none;}
+	#listShow #expect ul li:not(:first-child)>a>p{color:#fc0;}
